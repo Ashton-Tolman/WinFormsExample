@@ -39,13 +39,18 @@
             PhoneTextBox = new TextBox();
             PhoneLabel = new Label();
             ClearButton = new Button();
+            ButtonsGroupBox = new GroupBox();
+            UserInfoGroupBox = new GroupBox();
+            groupBox1 = new GroupBox();
+            ButtonsGroupBox.SuspendLayout();
+            UserInfoGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // ExitButton
             // 
-            ExitButton.Location = new Point(634, 363);
+            ExitButton.Location = new Point(219, 20);
             ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(154, 75);
+            ExitButton.Size = new Size(106, 75);
             ExitButton.TabIndex = 6;
             ExitButton.Text = "E&xit";
             ExitButton.UseVisualStyleBackColor = true;
@@ -53,9 +58,9 @@
             // 
             // SubmitButton
             // 
-            SubmitButton.Location = new Point(286, 363);
+            SubmitButton.Location = new Point(6, 20);
             SubmitButton.Name = "SubmitButton";
-            SubmitButton.Size = new Size(163, 75);
+            SubmitButton.Size = new Size(100, 75);
             SubmitButton.TabIndex = 4;
             SubmitButton.Text = "&Submit";
             SubmitButton.UseVisualStyleBackColor = true;
@@ -64,7 +69,7 @@
             // NameLabel
             // 
             NameLabel.AutoSize = true;
-            NameLabel.Location = new Point(24, 15);
+            NameLabel.Location = new Point(14, 33);
             NameLabel.Name = "NameLabel";
             NameLabel.Size = new Size(59, 25);
             NameLabel.TabIndex = 2;
@@ -72,22 +77,22 @@
             // 
             // NameTextBox
             // 
-            NameTextBox.Location = new Point(89, 12);
+            NameTextBox.Location = new Point(79, 30);
             NameTextBox.Name = "NameTextBox";
-            NameTextBox.Size = new Size(150, 31);
+            NameTextBox.Size = new Size(234, 31);
             NameTextBox.TabIndex = 0;
             // 
             // AgeTextBox
             // 
-            AgeTextBox.Location = new Point(89, 48);
+            AgeTextBox.Location = new Point(79, 66);
             AgeTextBox.Name = "AgeTextBox";
-            AgeTextBox.Size = new Size(150, 31);
+            AgeTextBox.Size = new Size(234, 31);
             AgeTextBox.TabIndex = 1;
             // 
             // AgeLabel
             // 
             AgeLabel.AutoSize = true;
-            AgeLabel.Location = new Point(24, 51);
+            AgeLabel.Location = new Point(14, 69);
             AgeLabel.Name = "AgeLabel";
             AgeLabel.Size = new Size(44, 25);
             AgeLabel.TabIndex = 4;
@@ -95,15 +100,15 @@
             // 
             // CityTextBox
             // 
-            CityTextBox.Location = new Point(89, 124);
+            CityTextBox.Location = new Point(79, 142);
             CityTextBox.Name = "CityTextBox";
-            CityTextBox.Size = new Size(150, 31);
+            CityTextBox.Size = new Size(234, 31);
             CityTextBox.TabIndex = 3;
             // 
             // CityLabel
             // 
             CityLabel.AutoSize = true;
-            CityLabel.Location = new Point(24, 127);
+            CityLabel.Location = new Point(14, 145);
             CityLabel.Name = "CityLabel";
             CityLabel.Size = new Size(42, 25);
             CityLabel.TabIndex = 8;
@@ -111,15 +116,15 @@
             // 
             // PhoneTextBox
             // 
-            PhoneTextBox.Location = new Point(89, 88);
+            PhoneTextBox.Location = new Point(79, 106);
             PhoneTextBox.Name = "PhoneTextBox";
-            PhoneTextBox.Size = new Size(150, 31);
+            PhoneTextBox.Size = new Size(234, 31);
             PhoneTextBox.TabIndex = 2;
             // 
             // PhoneLabel
             // 
             PhoneLabel.AutoSize = true;
-            PhoneLabel.Location = new Point(24, 91);
+            PhoneLabel.Location = new Point(14, 109);
             PhoneLabel.Name = "PhoneLabel";
             PhoneLabel.Size = new Size(62, 25);
             PhoneLabel.TabIndex = 6;
@@ -127,33 +132,64 @@
             // 
             // ClearButton
             // 
-            ClearButton.Location = new Point(455, 363);
+            ClearButton.Location = new Point(112, 20);
             ClearButton.Name = "ClearButton";
-            ClearButton.Size = new Size(169, 75);
+            ClearButton.Size = new Size(101, 75);
             ClearButton.TabIndex = 5;
-            ClearButton.Text = "Clear";
+            ClearButton.Text = "&Clear";
             ClearButton.UseVisualStyleBackColor = true;
+            // 
+            // ButtonsGroupBox
+            // 
+            ButtonsGroupBox.Controls.Add(SubmitButton);
+            ButtonsGroupBox.Controls.Add(ClearButton);
+            ButtonsGroupBox.Controls.Add(ExitButton);
+            ButtonsGroupBox.Location = new Point(455, 335);
+            ButtonsGroupBox.Name = "ButtonsGroupBox";
+            ButtonsGroupBox.Size = new Size(333, 103);
+            ButtonsGroupBox.TabIndex = 9;
+            ButtonsGroupBox.TabStop = false;
+            // 
+            // UserInfoGroupBox
+            // 
+            UserInfoGroupBox.Controls.Add(NameTextBox);
+            UserInfoGroupBox.Controls.Add(NameLabel);
+            UserInfoGroupBox.Controls.Add(CityTextBox);
+            UserInfoGroupBox.Controls.Add(AgeLabel);
+            UserInfoGroupBox.Controls.Add(CityLabel);
+            UserInfoGroupBox.Controls.Add(AgeTextBox);
+            UserInfoGroupBox.Controls.Add(PhoneTextBox);
+            UserInfoGroupBox.Controls.Add(PhoneLabel);
+            UserInfoGroupBox.Location = new Point(12, 12);
+            UserInfoGroupBox.Name = "UserInfoGroupBox";
+            UserInfoGroupBox.Size = new Size(319, 185);
+            UserInfoGroupBox.TabIndex = 10;
+            UserInfoGroupBox.TabStop = false;
+            UserInfoGroupBox.Text = "User Info";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Location = new Point(337, 23);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(443, 315);
+            groupBox1.TabIndex = 11;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
             // 
             // WinFormExampleForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(ClearButton);
-            Controls.Add(CityTextBox);
-            Controls.Add(CityLabel);
-            Controls.Add(PhoneTextBox);
-            Controls.Add(PhoneLabel);
-            Controls.Add(AgeTextBox);
-            Controls.Add(AgeLabel);
-            Controls.Add(NameTextBox);
-            Controls.Add(NameLabel);
-            Controls.Add(SubmitButton);
-            Controls.Add(ExitButton);
+            Controls.Add(groupBox1);
+            Controls.Add(UserInfoGroupBox);
+            Controls.Add(ButtonsGroupBox);
             Name = "WinFormExampleForm";
             Text = "Form1";
+            ButtonsGroupBox.ResumeLayout(false);
+            UserInfoGroupBox.ResumeLayout(false);
+            UserInfoGroupBox.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -169,5 +205,8 @@
         private TextBox PhoneTextBox;
         private Label PhoneLabel;
         private Button ClearButton;
+        private GroupBox ButtonsGroupBox;
+        private GroupBox UserInfoGroupBox;
+        private GroupBox groupBox1;
     }
 }
