@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             ExitButton = new Button();
             SubmitButton = new Button();
             NameLabel = new Label();
@@ -52,6 +53,7 @@
             ReverseRadioButton = new RadioButton();
             UpperCaseRadioButton = new RadioButton();
             LowerCaseRadioButton = new RadioButton();
+            MainToolTip = new ToolTip(components);
             ButtonsGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -64,6 +66,7 @@
             ExitButton.Size = new Size(106, 75);
             ExitButton.TabIndex = 6;
             ExitButton.Text = "E&xit";
+            MainToolTip.SetToolTip(ExitButton, "Dont leave please");
             ExitButton.UseVisualStyleBackColor = true;
             ExitButton.Click += ExitButton_Click;
             // 
@@ -192,6 +195,7 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
+            MainToolTip.SetToolTip(groupBox1, "These are controls");
             // 
             // radioButton2
             // 
@@ -286,6 +290,7 @@
             UpperCaseRadioButton.TabIndex = 5;
             UpperCaseRadioButton.TabStop = true;
             UpperCaseRadioButton.Text = "Upper";
+            MainToolTip.SetToolTip(UpperCaseRadioButton, "Youre dumb if you dont know what this does");
             UpperCaseRadioButton.UseVisualStyleBackColor = true;
             // 
             // LowerCaseRadioButton
@@ -301,8 +306,10 @@
             // 
             // WinFormExampleForm
             // 
+            AcceptButton = SubmitButton;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = ClearButton;
             ClientSize = new Size(800, 450);
             Controls.Add(ReverseRadioButton);
             Controls.Add(LowerCaseRadioButton);
@@ -313,7 +320,8 @@
             Controls.Add(UserInfoGroupBox);
             Controls.Add(ButtonsGroupBox);
             Name = "WinFormExampleForm";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Windows Form Example";
             ButtonsGroupBox.ResumeLayout(false);
             UserInfoGroupBox.ResumeLayout(false);
             UserInfoGroupBox.PerformLayout();
@@ -349,5 +357,6 @@
         private RadioButton ReverseRadioButton;
         private RadioButton UpperCaseRadioButton;
         private RadioButton LowerCaseRadioButton;
+        private ToolTip MainToolTip;
     }
 }
