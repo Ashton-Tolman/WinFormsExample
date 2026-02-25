@@ -16,7 +16,41 @@ namespace WinFormsExample
             CityTextBox.Text = "";
 
             UpperCaseRadioButton.Checked = true;
+            
 
+        }
+
+        private void ValidateFields()
+        {
+            string message = "";
+
+            if (CityTextBox.Text == "")
+            {
+                message = "City is required\n" + message;
+                CityTextBox.Focus();
+
+            }
+            if (PhoneTextBox.Text == "")
+            {
+                message = "Phone number is required\n" + message;
+                PhoneTextBox.Focus();
+
+            }
+            if (AgeTextBox.Text == "")
+            {
+                message = "Age is required\n" + message;
+                AgeTextBox.Focus();
+
+            }
+            if (NameTextBox.Text == "")
+            {
+                message = "Name is required\n" + message;
+                NameTextBox.Focus();
+            }
+            if (message != "")
+            { 
+                MessageBox.Show(message);
+            }
         }
 
         //Event handelers below
@@ -27,12 +61,30 @@ namespace WinFormsExample
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            this.Text = NameTextBox.Text;
+            ValidateFields();
+            
+            
+            //this.Text = NameTextBox.Text;
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
             SetDefaults();
+        }
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (NameTextBox.Text != "")
+            {
+                NameTextBox.BackColor = Color.LightYellow;
+                SubmitButton.Enabled = true;
+            }
+            else
+            {
+                NameTextBox.BackColor = Color.White;
+                SubmitButton.Enabled = false;
+
+            }
         }
     }
 }

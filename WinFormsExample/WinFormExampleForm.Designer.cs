@@ -91,10 +91,11 @@
             // 
             // NameTextBox
             // 
-            NameTextBox.Location = new Point(85, 33);
+            NameTextBox.Location = new Point(79, 33);
             NameTextBox.Name = "NameTextBox";
             NameTextBox.Size = new Size(234, 31);
             NameTextBox.TabIndex = 0;
+            NameTextBox.TextChanged += NameTextBox_TextChanged;
             // 
             // AgeTextBox
             // 
