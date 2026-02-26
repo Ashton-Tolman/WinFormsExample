@@ -16,7 +16,7 @@ namespace WinFormsExample
             CityTextBox.Text = "";
 
             UpperCaseRadioButton.Checked = true;
-            
+            SubmitButton.Enabled = false;
 
         }
 
@@ -62,8 +62,6 @@ namespace WinFormsExample
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             ValidateFields();
-            
-            
             //this.Text = NameTextBox.Text;
         }
 
@@ -82,6 +80,21 @@ namespace WinFormsExample
             else
             {
                 NameTextBox.BackColor = Color.White;
+                SubmitButton.Enabled = false;
+
+            }
+        }
+
+        private void AgeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (AgeTextBox.Text != "")
+            {
+                AgeTextBox.BackColor = Color.LightYellow;
+                SubmitButton.Enabled = true;
+            }
+            else
+            {
+                AgeTextBox.BackColor = Color.White;
                 SubmitButton.Enabled = false;
 
             }
