@@ -48,8 +48,13 @@
             UpperCaseRadioButton = new RadioButton();
             LowerCaseRadioButton = new RadioButton();
             MainToolTip = new ToolTip(components);
+            Displaylabel = new Label();
+            TopMenuStrip = new MenuStrip();
+            fileTopMenuItem = new ToolStripMenuItem();
+            helpTopMenuItem = new ToolStripMenuItem();
             ButtonsGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
+            TopMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // ExitButton
@@ -170,7 +175,7 @@
             UserInfoGroupBox.Controls.Add(AgeTextBox);
             UserInfoGroupBox.Controls.Add(PhoneTextBox);
             UserInfoGroupBox.Controls.Add(PhoneLabel);
-            UserInfoGroupBox.Location = new Point(12, 12);
+            UserInfoGroupBox.Location = new Point(20, 108);
             UserInfoGroupBox.Name = "UserInfoGroupBox";
             UserInfoGroupBox.Size = new Size(319, 185);
             UserInfoGroupBox.TabIndex = 0;
@@ -180,7 +185,7 @@
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(11, 209);
+            checkBox2.Location = new Point(153, 335);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(121, 29);
             checkBox2.TabIndex = 3;
@@ -190,7 +195,7 @@
             // checkBox4
             // 
             checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(11, 244);
+            checkBox4.Location = new Point(153, 370);
             checkBox4.Name = "checkBox4";
             checkBox4.Size = new Size(121, 29);
             checkBox4.TabIndex = 4;
@@ -231,6 +236,36 @@
             LowerCaseRadioButton.Text = "Lower";
             LowerCaseRadioButton.UseVisualStyleBackColor = true;
             // 
+            // Displaylabel
+            // 
+            Displaylabel.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Displaylabel.Location = new Point(331, 22);
+            Displaylabel.Name = "Displaylabel";
+            Displaylabel.Size = new Size(451, 310);
+            Displaylabel.TabIndex = 16;
+            // 
+            // TopMenuStrip
+            // 
+            TopMenuStrip.ImageScalingSize = new Size(24, 24);
+            TopMenuStrip.Items.AddRange(new ToolStripItem[] { fileTopMenuItem, helpTopMenuItem });
+            TopMenuStrip.Location = new Point(0, 0);
+            TopMenuStrip.Name = "TopMenuStrip";
+            TopMenuStrip.Size = new Size(800, 33);
+            TopMenuStrip.TabIndex = 17;
+            TopMenuStrip.Text = "menuStrip1";
+            // 
+            // fileTopMenuItem
+            // 
+            fileTopMenuItem.Name = "fileTopMenuItem";
+            fileTopMenuItem.Size = new Size(59, 29);
+            fileTopMenuItem.Text = "File ";
+            // 
+            // helpTopMenuItem
+            // 
+            helpTopMenuItem.Name = "helpTopMenuItem";
+            helpTopMenuItem.Size = new Size(65, 29);
+            helpTopMenuItem.Text = "Help";
+            // 
             // WinFormExampleForm
             // 
             AcceptButton = SubmitButton;
@@ -238,6 +273,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = ClearButton;
             ClientSize = new Size(800, 450);
+            Controls.Add(Displaylabel);
             Controls.Add(ReverseRadioButton);
             Controls.Add(LowerCaseRadioButton);
             Controls.Add(UpperCaseRadioButton);
@@ -245,12 +281,16 @@
             Controls.Add(checkBox4);
             Controls.Add(UserInfoGroupBox);
             Controls.Add(ButtonsGroupBox);
+            Controls.Add(TopMenuStrip);
+            MainMenuStrip = TopMenuStrip;
             Name = "WinFormExampleForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Windows Form Example";
             ButtonsGroupBox.ResumeLayout(false);
             UserInfoGroupBox.ResumeLayout(false);
             UserInfoGroupBox.PerformLayout();
+            TopMenuStrip.ResumeLayout(false);
+            TopMenuStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -276,5 +316,9 @@
         private RadioButton UpperCaseRadioButton;
         private RadioButton LowerCaseRadioButton;
         private ToolTip MainToolTip;
+        private Label Displaylabel;
+        private MenuStrip TopMenuStrip;
+        private ToolStripMenuItem fileTopMenuItem;
+        private ToolStripMenuItem helpTopMenuItem;
     }
 }

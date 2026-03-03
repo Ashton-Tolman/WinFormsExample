@@ -56,19 +56,27 @@ namespace WinFormsExample
             return valid;
         }
 
-        private void UpperCase()
+        private string UpperCase(string toUpper)
         {
-           if (UpperCaseRadioButton.Checked)
-           {
-                NameTextBox.Text = NameTextBox.Text.ToUpper();
-           }
+            if (UpperCaseRadioButton.Checked)
+            {
+                return toUpper.ToUpper();
+            }
+            else
+            {
+                return toUpper;
+            }
         }
 
-        private void Reverse()
+        private string Reverse(string reverseThis)
         {
             if (ReverseRadioButton.Checked)
             {
-                NameTextBox.Text = new string(NameTextBox.Text.Reverse().ToArray());
+                return new string(reverseThis.Reverse().ToArray());
+            }
+            else
+            {
+                return reverseThis;
             }
         }
         //Event handelers below
@@ -82,8 +90,12 @@ namespace WinFormsExample
             if (ValidateFields())
             {
                 //this.Text = NameTextBox.Text;
-                UpperCase();
-                Reverse();
+                //UpperCase();
+                //Reverse();
+                Displaylabel.Text = Reverse(UpperCase(NameTextBox.Text +
+                             "\n" + AgeTextBox.Text +
+                             "\n" + PhoneTextBox.Text +
+                             "\n" + CityTextBox.Text));
             }
         }
 
