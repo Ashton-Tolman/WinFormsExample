@@ -146,5 +146,20 @@ namespace WinFormsExample
         {
             MessageBox.Show("No help avalible");
         }
+
+        private void UpperContextMenuItem_Click(object sender, EventArgs e)
+        {
+            UpperCaseRadioButton.Checked = true;
+        }
+
+        private void LowerContextMenuItem_Click(object sender, EventArgs e)
+        {
+            LowerCaseRadioButton.Checked = true;
+        }
+
+        private void ReverseContextMenuItem_Click(object sender, EventArgs e)
+        {
+            ReverseRadioButton.Checked = true;
+        }
     }
 }
