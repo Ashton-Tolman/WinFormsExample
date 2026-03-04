@@ -14,9 +14,11 @@ namespace WinFormsExample
             AgeTextBox.Text = "";
             PhoneTextBox.Text = "";
             CityTextBox.Text = "";
+            Displaylabel.Text = "";
 
             UpperCaseRadioButton.Checked = true;
             SubmitButton.Enabled = false;
+            SubmitTopMenuItem.Enabled = false;
 
         }
 
