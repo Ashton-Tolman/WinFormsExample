@@ -51,7 +51,11 @@
             Displaylabel = new Label();
             TopMenuStrip = new MenuStrip();
             fileTopMenuItem = new ToolStripMenuItem();
+            SubmitTopMenuItem = new ToolStripMenuItem();
+            ClearTopMenuItem = new ToolStripMenuItem();
+            ExitTopMenuItem = new ToolStripMenuItem();
             helpTopMenuItem = new ToolStripMenuItem();
+            AboutTopMenuItem = new ToolStripMenuItem();
             ButtonsGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
             TopMenuStrip.SuspendLayout();
@@ -175,7 +179,7 @@
             UserInfoGroupBox.Controls.Add(AgeTextBox);
             UserInfoGroupBox.Controls.Add(PhoneTextBox);
             UserInfoGroupBox.Controls.Add(PhoneLabel);
-            UserInfoGroupBox.Location = new Point(20, 108);
+            UserInfoGroupBox.Location = new Point(12, 36);
             UserInfoGroupBox.Name = "UserInfoGroupBox";
             UserInfoGroupBox.Size = new Size(319, 185);
             UserInfoGroupBox.TabIndex = 0;
@@ -239,9 +243,9 @@
             // Displaylabel
             // 
             Displaylabel.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Displaylabel.Location = new Point(331, 22);
+            Displaylabel.Location = new Point(345, 36);
             Displaylabel.Name = "Displaylabel";
-            Displaylabel.Size = new Size(451, 310);
+            Displaylabel.Size = new Size(445, 310);
             Displaylabel.TabIndex = 16;
             // 
             // TopMenuStrip
@@ -256,15 +260,45 @@
             // 
             // fileTopMenuItem
             // 
+            fileTopMenuItem.DropDownItems.AddRange(new ToolStripItem[] { SubmitTopMenuItem, ClearTopMenuItem, ExitTopMenuItem });
             fileTopMenuItem.Name = "fileTopMenuItem";
             fileTopMenuItem.Size = new Size(59, 29);
             fileTopMenuItem.Text = "File ";
             // 
+            // SubmitTopMenuItem
+            // 
+            SubmitTopMenuItem.Name = "SubmitTopMenuItem";
+            SubmitTopMenuItem.Size = new Size(270, 34);
+            SubmitTopMenuItem.Text = "&Submit";
+            SubmitTopMenuItem.Click += SubmitButton_Click;
+            // 
+            // ClearTopMenuItem
+            // 
+            ClearTopMenuItem.Name = "ClearTopMenuItem";
+            ClearTopMenuItem.Size = new Size(270, 34);
+            ClearTopMenuItem.Text = "&Clear";
+            ClearTopMenuItem.Click += ClearButton_Click;
+            // 
+            // ExitTopMenuItem
+            // 
+            ExitTopMenuItem.Name = "ExitTopMenuItem";
+            ExitTopMenuItem.Size = new Size(270, 34);
+            ExitTopMenuItem.Text = "E&xit";
+            ExitTopMenuItem.Click += ExitButton_Click;
+            // 
             // helpTopMenuItem
             // 
+            helpTopMenuItem.DropDownItems.AddRange(new ToolStripItem[] { AboutTopMenuItem });
             helpTopMenuItem.Name = "helpTopMenuItem";
             helpTopMenuItem.Size = new Size(65, 29);
             helpTopMenuItem.Text = "Help";
+            // 
+            // AboutTopMenuItem
+            // 
+            AboutTopMenuItem.Name = "AboutTopMenuItem";
+            AboutTopMenuItem.Size = new Size(270, 34);
+            AboutTopMenuItem.Text = "&About";
+            AboutTopMenuItem.Click += AboutTopMenuItem_Click;
             // 
             // WinFormExampleForm
             // 
@@ -320,5 +354,9 @@
         private MenuStrip TopMenuStrip;
         private ToolStripMenuItem fileTopMenuItem;
         private ToolStripMenuItem helpTopMenuItem;
+        private ToolStripMenuItem SubmitTopMenuItem;
+        private ToolStripMenuItem ClearTopMenuItem;
+        private ToolStripMenuItem ExitTopMenuItem;
+        private ToolStripMenuItem AboutTopMenuItem;
     }
 }

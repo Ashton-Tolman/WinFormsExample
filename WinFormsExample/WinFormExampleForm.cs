@@ -23,7 +23,7 @@ namespace WinFormsExample
         private bool ValidateFields()
         {
             string message = "";
-            bool valid = true; 
+            bool valid = true;
 
             if (CityTextBox.Text == "")
             {
@@ -49,7 +49,7 @@ namespace WinFormsExample
                 NameTextBox.Focus();
             }
             if (message != "")
-            { 
+            {
                 MessageBox.Show(message);
                 valid = false;
             }
@@ -110,11 +110,13 @@ namespace WinFormsExample
             {
                 NameTextBox.BackColor = Color.LightYellow;
                 SubmitButton.Enabled = true;
+                SubmitTopMenuItem.Enabled = true;
             }
             else
             {
                 NameTextBox.BackColor = Color.White;
                 SubmitButton.Enabled = false;
+                SubmitTopMenuItem.Enabled = false;
 
             }
         }
@@ -125,13 +127,22 @@ namespace WinFormsExample
             {
                 AgeTextBox.BackColor = Color.LightYellow;
                 SubmitButton.Enabled = true;
+                SubmitTopMenuItem.Enabled = true;
+
             }
             else
             {
                 AgeTextBox.BackColor = Color.White;
                 SubmitButton.Enabled = false;
+                SubmitTopMenuItem.Enabled = false;
+
 
             }
+        }
+
+        private void AboutTopMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("No help avalible");
         }
     }
 }
