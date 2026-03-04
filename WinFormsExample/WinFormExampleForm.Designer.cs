@@ -49,6 +49,10 @@
             LowerCaseRadioButton = new RadioButton();
             MainToolTip = new ToolTip(components);
             FormatOptionsGroupBox = new GroupBox();
+            FormatContextMenuStrip = new ContextMenuStrip(components);
+            UpperContextMenuItem = new ToolStripMenuItem();
+            LowerContextMenuItem = new ToolStripMenuItem();
+            ReverseContextMenuItem = new ToolStripMenuItem();
             Displaylabel = new Label();
             TopMenuStrip = new MenuStrip();
             fileTopMenuItem = new ToolStripMenuItem();
@@ -57,15 +61,13 @@
             ExitTopMenuItem = new ToolStripMenuItem();
             helpTopMenuItem = new ToolStripMenuItem();
             AboutTopMenuItem = new ToolStripMenuItem();
-            FormatContextMenuStrip = new ContextMenuStrip(components);
-            UpperContextMenuItem = new ToolStripMenuItem();
-            LowerContextMenuItem = new ToolStripMenuItem();
-            ReverseContextMenuItem = new ToolStripMenuItem();
+            DisplayPictureBox = new PictureBox();
             ButtonsGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
             FormatOptionsGroupBox.SuspendLayout();
-            TopMenuStrip.SuspendLayout();
             FormatContextMenuStrip.SuspendLayout();
+            TopMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).BeginInit();
             SuspendLayout();
             // 
             // ExitButton
@@ -263,12 +265,40 @@
             FormatOptionsGroupBox.Text = "Format Options";
             MainToolTip.SetToolTip(FormatOptionsGroupBox, "Change info format");
             // 
+            // FormatContextMenuStrip
+            // 
+            FormatContextMenuStrip.ImageScalingSize = new Size(24, 24);
+            FormatContextMenuStrip.Items.AddRange(new ToolStripItem[] { UpperContextMenuItem, LowerContextMenuItem, ReverseContextMenuItem });
+            FormatContextMenuStrip.Name = "FormatContextMenuStrip";
+            FormatContextMenuStrip.Size = new Size(145, 100);
+            // 
+            // UpperContextMenuItem
+            // 
+            UpperContextMenuItem.Name = "UpperContextMenuItem";
+            UpperContextMenuItem.Size = new Size(144, 32);
+            UpperContextMenuItem.Text = "Upper";
+            UpperContextMenuItem.Click += UpperContextMenuItem_Click;
+            // 
+            // LowerContextMenuItem
+            // 
+            LowerContextMenuItem.Name = "LowerContextMenuItem";
+            LowerContextMenuItem.Size = new Size(144, 32);
+            LowerContextMenuItem.Text = "Lower";
+            LowerContextMenuItem.Click += LowerContextMenuItem_Click;
+            // 
+            // ReverseContextMenuItem
+            // 
+            ReverseContextMenuItem.Name = "ReverseContextMenuItem";
+            ReverseContextMenuItem.Size = new Size(144, 32);
+            ReverseContextMenuItem.Text = "Reverse";
+            ReverseContextMenuItem.Click += ReverseContextMenuItem_Click;
+            // 
             // Displaylabel
             // 
             Displaylabel.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Displaylabel.Location = new Point(345, 36);
             Displaylabel.Name = "Displaylabel";
-            Displaylabel.Size = new Size(445, 310);
+            Displaylabel.Size = new Size(216, 310);
             Displaylabel.TabIndex = 16;
             // 
             // TopMenuStrip
@@ -323,33 +353,15 @@
             AboutTopMenuItem.Text = "&About";
             AboutTopMenuItem.Click += AboutTopMenuItem_Click;
             // 
-            // FormatContextMenuStrip
+            // DisplayPictureBox
             // 
-            FormatContextMenuStrip.ImageScalingSize = new Size(24, 24);
-            FormatContextMenuStrip.Items.AddRange(new ToolStripItem[] { UpperContextMenuItem, LowerContextMenuItem, ReverseContextMenuItem });
-            FormatContextMenuStrip.Name = "FormatContextMenuStrip";
-            FormatContextMenuStrip.Size = new Size(145, 100);
-            // 
-            // UpperContextMenuItem
-            // 
-            UpperContextMenuItem.Name = "UpperContextMenuItem";
-            UpperContextMenuItem.Size = new Size(144, 32);
-            UpperContextMenuItem.Text = "Upper";
-            UpperContextMenuItem.Click += UpperContextMenuItem_Click;
-            // 
-            // LowerContextMenuItem
-            // 
-            LowerContextMenuItem.Name = "LowerContextMenuItem";
-            LowerContextMenuItem.Size = new Size(144, 32);
-            LowerContextMenuItem.Text = "Lower";
-            LowerContextMenuItem.Click += LowerContextMenuItem_Click;
-            // 
-            // ReverseContextMenuItem
-            // 
-            ReverseContextMenuItem.Name = "ReverseContextMenuItem";
-            ReverseContextMenuItem.Size = new Size(144, 32);
-            ReverseContextMenuItem.Text = "Reverse";
-            ReverseContextMenuItem.Click += ReverseContextMenuItem_Click;
+            DisplayPictureBox.BackgroundImage = Properties.Resources.santa_clause_elden;
+            DisplayPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
+            DisplayPictureBox.Location = new Point(575, 36);
+            DisplayPictureBox.Name = "DisplayPictureBox";
+            DisplayPictureBox.Size = new Size(213, 307);
+            DisplayPictureBox.TabIndex = 19;
+            DisplayPictureBox.TabStop = false;
             // 
             // WinFormExampleForm
             // 
@@ -358,6 +370,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = ClearButton;
             ClientSize = new Size(800, 450);
+            Controls.Add(DisplayPictureBox);
             Controls.Add(FormatOptionsGroupBox);
             Controls.Add(Displaylabel);
             Controls.Add(UserInfoGroupBox);
@@ -372,9 +385,10 @@
             UserInfoGroupBox.PerformLayout();
             FormatOptionsGroupBox.ResumeLayout(false);
             FormatOptionsGroupBox.PerformLayout();
+            FormatContextMenuStrip.ResumeLayout(false);
             TopMenuStrip.ResumeLayout(false);
             TopMenuStrip.PerformLayout();
-            FormatContextMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -413,5 +427,6 @@
         private ToolStripMenuItem UpperContextMenuItem;
         private ToolStripMenuItem LowerContextMenuItem;
         private ToolStripMenuItem ReverseContextMenuItem;
+        private PictureBox DisplayPictureBox;
     }
 }
