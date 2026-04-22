@@ -259,7 +259,7 @@
             FormatOptionsGroupBox.Controls.Add(ReverseRadioButton);
             FormatOptionsGroupBox.Location = new Point(12, 227);
             FormatOptionsGroupBox.Name = "FormatOptionsGroupBox";
-            FormatOptionsGroupBox.Size = new Size(365, 203);
+            FormatOptionsGroupBox.Size = new Size(319, 203);
             FormatOptionsGroupBox.TabIndex = 18;
             FormatOptionsGroupBox.TabStop = false;
             FormatOptionsGroupBox.Text = "Format Options";
@@ -359,9 +359,9 @@
             // DisplayListBox
             // 
             DisplayListBox.FormattingEnabled = true;
-            DisplayListBox.Location = new Point(354, 47);
+            DisplayListBox.Location = new Point(337, 46);
             DisplayListBox.Name = "DisplayListBox";
-            DisplayListBox.Size = new Size(399, 229);
+            DisplayListBox.Size = new Size(370, 229);
             DisplayListBox.TabIndex = 19;
             // 
             // WinFormExampleForm

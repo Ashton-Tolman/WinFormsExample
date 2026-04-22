@@ -14,7 +14,7 @@ namespace WinFormsExample
             AgeTextBox.Text = "";
             PhoneTextBox.Text = "";
             CityTextBox.Text = "";
-            Displaylabel.Text = "";
+            //Displaylabel.Text = "";
 
             UpperCaseRadioButton.Checked = true;
             SubmitButton.Enabled = false;
@@ -148,7 +148,9 @@ namespace WinFormsExample
                 }
                 if (formattedRow != "")
                 {
-                    Console.WriteLine(formattedRow);
+                    
+
+                    DisplayListBox.Items.Add(formattedRow);
                 }
                 formattedRow = "";
             }
@@ -168,10 +170,10 @@ namespace WinFormsExample
                 //this.Text = NameTextBox.Text;
                 //UpperCase();
                 //Reverse();
-                Displaylabel.Text = Reverse(UpperCase(NameTextBox.Text +
-                             "\n" + AgeTextBox.Text +
-                             "\n" + PhoneTextBox.Text +
-                             "\n" + CityTextBox.Text));
+                //Displaylabel.Text = Reverse(UpperCase(NameTextBox.Text +
+                //             "\n" + AgeTextBox.Text +
+                //             "\n" + PhoneTextBox.Text +
+                //             "\n" + CityTextBox.Text));
             }
         }
 
