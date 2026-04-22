@@ -81,6 +81,80 @@ namespace WinFormsExample
                 return reverseThis;
             }
         }
+
+        static int CountOfLinesIn(string filePath)
+        {
+            int count = 0;
+            using (StreamReader testFile = new StreamReader(filePath))
+            {
+
+                do
+                {
+                    testFile.ReadLine();
+                    count++;
+                } while (!testFile.EndOfStream);
+            }
+            return count;
+        }
+
+        static string[,] FileToArray(string filePath)
+        {
+            string[,] customerData = new string[4, CountOfLinesIn(filePath)];
+            string[] temp;
+            int counter = 0;
+
+
+            using (StreamReader testFile = new StreamReader(filePath))
+            {
+
+                do
+                {
+
+                    temp = testFile.ReadLine().Split(",");
+
+                    if (temp.Length == 5)
+                    {
+                        temp[0] = temp[0].Replace("\"$$", "");
+                        temp[3] = temp[3].Replace("\"", "");
+
+                        customerData[0, counter] = temp[0];
+                        customerData[1, counter] = temp[1];
+                        customerData[2, counter] = temp[2];
+                        customerData[3, counter] = temp[3];
+                    }
+
+                    counter++;
+
+                } while (!testFile.EndOfStream);
+            }
+
+            return customerData;
+        }
+
+        static void DisplayData(string[,] data)
+        {
+            string? formattedRow = "";
+
+            for (int row = 0; row < data.GetLength(1); row++)
+            {
+                for (int column = 0; column < data.GetLength(0); column++)
+                {
+                    if (data[column, row] != null)
+                    {
+                        formattedRow += data[column, row].PadRight(15);
+
+                    }
+
+                }
+                if (formattedRow != "")
+                {
+                    Console.WriteLine(formattedRow);
+                }
+                formattedRow = "";
+            }
+        }
+
+
         //Event handelers below
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -164,7 +238,18 @@ namespace WinFormsExample
 
         private void OpenTopMenuItem_Click(object sender, EventArgs e)
         {
+            string[,] fileData;
+            string filePath = "";
+            MainOpenFileDialog.FileName = "Big fella";
+            MainOpenFileDialog.Filter = "txt files (*.txt)|*.txt|wav files (*.wav*)|*.wav|All files (*.*)|*.*"; //"file filter name |*file extention|"
 
+            if (MainOpenFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = MainOpenFileDialog.FileName;
+                fileData = FileToArray(filePath);
+                DisplayData(fileData);
+                
+            }
         }
     }
 }

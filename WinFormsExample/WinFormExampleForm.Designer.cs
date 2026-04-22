@@ -53,23 +53,21 @@
             UpperContextMenuItem = new ToolStripMenuItem();
             LowerContextMenuItem = new ToolStripMenuItem();
             ReverseContextMenuItem = new ToolStripMenuItem();
-            Displaylabel = new Label();
             TopMenuStrip = new MenuStrip();
             fileTopMenuItem = new ToolStripMenuItem();
+            OpenTopMenuItem = new ToolStripMenuItem();
             SubmitTopMenuItem = new ToolStripMenuItem();
             ClearTopMenuItem = new ToolStripMenuItem();
             ExitTopMenuItem = new ToolStripMenuItem();
             helpTopMenuItem = new ToolStripMenuItem();
             AboutTopMenuItem = new ToolStripMenuItem();
-            DisplayPictureBox = new PictureBox();
             MainOpenFileDialog = new OpenFileDialog();
-            OpenTopMenuItem = new ToolStripMenuItem();
+            DisplayListBox = new ListBox();
             ButtonsGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
             FormatOptionsGroupBox.SuspendLayout();
             FormatContextMenuStrip.SuspendLayout();
             TopMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).BeginInit();
             SuspendLayout();
             // 
             // ExitButton
@@ -295,14 +293,6 @@
             ReverseContextMenuItem.Text = "Reverse";
             ReverseContextMenuItem.Click += ReverseContextMenuItem_Click;
             // 
-            // Displaylabel
-            // 
-            Displaylabel.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Displaylabel.Location = new Point(345, 36);
-            Displaylabel.Name = "Displaylabel";
-            Displaylabel.Size = new Size(216, 310);
-            Displaylabel.TabIndex = 16;
-            // 
             // TopMenuStrip
             // 
             TopMenuStrip.ImageScalingSize = new Size(24, 24);
@@ -320,24 +310,31 @@
             fileTopMenuItem.Size = new Size(59, 29);
             fileTopMenuItem.Text = "File ";
             // 
+            // OpenTopMenuItem
+            // 
+            OpenTopMenuItem.Name = "OpenTopMenuItem";
+            OpenTopMenuItem.Size = new Size(171, 34);
+            OpenTopMenuItem.Text = "&Open";
+            OpenTopMenuItem.Click += OpenTopMenuItem_Click;
+            // 
             // SubmitTopMenuItem
             // 
             SubmitTopMenuItem.Name = "SubmitTopMenuItem";
-            SubmitTopMenuItem.Size = new Size(270, 34);
+            SubmitTopMenuItem.Size = new Size(171, 34);
             SubmitTopMenuItem.Text = "&Submit";
             SubmitTopMenuItem.Click += SubmitButton_Click;
             // 
             // ClearTopMenuItem
             // 
             ClearTopMenuItem.Name = "ClearTopMenuItem";
-            ClearTopMenuItem.Size = new Size(270, 34);
+            ClearTopMenuItem.Size = new Size(171, 34);
             ClearTopMenuItem.Text = "&Clear";
             ClearTopMenuItem.Click += ClearButton_Click;
             // 
             // ExitTopMenuItem
             // 
             ExitTopMenuItem.Name = "ExitTopMenuItem";
-            ExitTopMenuItem.Size = new Size(270, 34);
+            ExitTopMenuItem.Size = new Size(171, 34);
             ExitTopMenuItem.Text = "E&xit";
             ExitTopMenuItem.Click += ExitButton_Click;
             // 
@@ -355,26 +352,17 @@
             AboutTopMenuItem.Text = "&About";
             AboutTopMenuItem.Click += AboutTopMenuItem_Click;
             // 
-            // DisplayPictureBox
-            // 
-            DisplayPictureBox.BackgroundImage = Properties.Resources.santa_clause_elden;
-            DisplayPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
-            DisplayPictureBox.Location = new Point(575, 36);
-            DisplayPictureBox.Name = "DisplayPictureBox";
-            DisplayPictureBox.Size = new Size(213, 307);
-            DisplayPictureBox.TabIndex = 19;
-            DisplayPictureBox.TabStop = false;
-            // 
             // MainOpenFileDialog
             // 
             MainOpenFileDialog.FileName = "openFileDialog1";
             // 
-            // OpenTopMenuItem
+            // DisplayListBox
             // 
-            OpenTopMenuItem.Name = "OpenTopMenuItem";
-            OpenTopMenuItem.Size = new Size(270, 34);
-            OpenTopMenuItem.Text = "&Open";
-            OpenTopMenuItem.Click += OpenTopMenuItem_Click;
+            DisplayListBox.FormattingEnabled = true;
+            DisplayListBox.Location = new Point(354, 47);
+            DisplayListBox.Name = "DisplayListBox";
+            DisplayListBox.Size = new Size(399, 229);
+            DisplayListBox.TabIndex = 19;
             // 
             // WinFormExampleForm
             // 
@@ -383,9 +371,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = ClearButton;
             ClientSize = new Size(800, 450);
-            Controls.Add(DisplayPictureBox);
+            Controls.Add(DisplayListBox);
             Controls.Add(FormatOptionsGroupBox);
-            Controls.Add(Displaylabel);
             Controls.Add(UserInfoGroupBox);
             Controls.Add(ButtonsGroupBox);
             Controls.Add(TopMenuStrip);
@@ -401,7 +388,6 @@
             FormatContextMenuStrip.ResumeLayout(false);
             TopMenuStrip.ResumeLayout(false);
             TopMenuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -427,7 +413,6 @@
         private RadioButton UpperCaseRadioButton;
         private RadioButton LowerCaseRadioButton;
         private ToolTip MainToolTip;
-        private Label Displaylabel;
         private MenuStrip TopMenuStrip;
         private ToolStripMenuItem fileTopMenuItem;
         private ToolStripMenuItem helpTopMenuItem;
@@ -440,8 +425,8 @@
         private ToolStripMenuItem UpperContextMenuItem;
         private ToolStripMenuItem LowerContextMenuItem;
         private ToolStripMenuItem ReverseContextMenuItem;
-        private PictureBox DisplayPictureBox;
         private OpenFileDialog MainOpenFileDialog;
         private ToolStripMenuItem OpenTopMenuItem;
+        private ListBox DisplayListBox;
     }
 }
