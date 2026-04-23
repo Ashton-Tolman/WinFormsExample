@@ -5,10 +5,14 @@ namespace WinFormsExample
         public WinFormExampleForm()
         {
             InitializeComponent();
+            CityRadioButton.CheckedChanged += CityRadioButton_CheckedChanged1;
+
             SetDefaults();
         }
 
-        string[,] customerData; // persistant customer data 
+        
+
+        string[,] customerData = new string[0,0]; // persistant customer data 
 
         private void SetDefaults()
         {
@@ -17,6 +21,8 @@ namespace WinFormsExample
             PhoneTextBox.Text = "";
             CityTextBox.Text = "";
             //Displaylabel.Text = "";
+
+            CityRadioButton.Checked = true;
 
             UpperCaseRadioButton.Checked = true;
             SubmitButton.Enabled = false;
@@ -152,7 +158,7 @@ namespace WinFormsExample
                 }
                 if (formattedRow != "")
                 {
-                    
+
 
                     DisplayListBox.Items.Add(formattedRow);
                 }
@@ -160,8 +166,29 @@ namespace WinFormsExample
             }
         }
 
+        void LoadFilterComboBox()
+        {
+            FilterComboBox.Items.Clear();
 
-        //Event handelers below
+
+            for (int row = 0; (row < this.customerData.GetUpperBound(0)); row++)
+            {
+                if (this.customerData[2, row] != "")
+                {
+                    FilterComboBox.Items.Add(this.customerData[1, row]); //add city
+
+                }
+            }
+
+        }
+
+
+        //Event handelers below------------------------------------------------
+        private void CityRadioButton_CheckedChanged1(object? sender, EventArgs e)
+        {
+            LoadFilterComboBox();
+        }
+
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -254,8 +281,10 @@ namespace WinFormsExample
                 filePath = MainOpenFileDialog.FileName;
                 FileToArray(filePath);
                 DisplayData();
-                
+
             }
         }
+
+        
     }
 }

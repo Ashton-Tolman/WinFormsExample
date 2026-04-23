@@ -63,9 +63,9 @@
             DisplayListBox = new ListBox();
             FilterComboBox = new ComboBox();
             FilterOptionsGroupBox = new GroupBox();
-            CityRadioButton = new RadioButton();
-            LastNameRadioButton = new RadioButton();
             FirstNameRadioButton = new RadioButton();
+            LastNameRadioButton = new RadioButton();
+            CityRadioButton = new RadioButton();
             ButtonsGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
             FormatOptionsGroupBox.SuspendLayout();
@@ -367,16 +367,16 @@
             FilterOptionsGroupBox.TabStop = false;
             FilterOptionsGroupBox.Text = "Filter Options";
             // 
-            // CityRadioButton
+            // FirstNameRadioButton
             // 
-            CityRadioButton.AutoSize = true;
-            CityRadioButton.Location = new Point(6, 30);
-            CityRadioButton.Name = "CityRadioButton";
-            CityRadioButton.Size = new Size(67, 29);
-            CityRadioButton.TabIndex = 0;
-            CityRadioButton.TabStop = true;
-            CityRadioButton.Text = "City";
-            CityRadioButton.UseVisualStyleBackColor = true;
+            FirstNameRadioButton.AutoSize = true;
+            FirstNameRadioButton.Location = new Point(6, 99);
+            FirstNameRadioButton.Name = "FirstNameRadioButton";
+            FirstNameRadioButton.Size = new Size(122, 29);
+            FirstNameRadioButton.TabIndex = 2;
+            FirstNameRadioButton.TabStop = true;
+            FirstNameRadioButton.Text = "First Name";
+            FirstNameRadioButton.UseVisualStyleBackColor = true;
             // 
             // LastNameRadioButton
             // 
@@ -389,16 +389,16 @@
             LastNameRadioButton.Text = "Last Name";
             LastNameRadioButton.UseVisualStyleBackColor = true;
             // 
-            // FirstNameRadioButton
+            // CityRadioButton
             // 
-            FirstNameRadioButton.AutoSize = true;
-            FirstNameRadioButton.Location = new Point(6, 99);
-            FirstNameRadioButton.Name = "FirstNameRadioButton";
-            FirstNameRadioButton.Size = new Size(122, 29);
-            FirstNameRadioButton.TabIndex = 2;
-            FirstNameRadioButton.TabStop = true;
-            FirstNameRadioButton.Text = "First Name";
-            FirstNameRadioButton.UseVisualStyleBackColor = true;
+            CityRadioButton.AutoSize = true;
+            CityRadioButton.Location = new Point(6, 30);
+            CityRadioButton.Name = "CityRadioButton";
+            CityRadioButton.Size = new Size(67, 29);
+            CityRadioButton.TabIndex = 0;
+            CityRadioButton.TabStop = true;
+            CityRadioButton.Text = "City";
+            CityRadioButton.UseVisualStyleBackColor = true;
             // 
             // WinFormExampleForm
             // 
