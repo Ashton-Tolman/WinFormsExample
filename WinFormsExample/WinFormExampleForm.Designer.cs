@@ -358,10 +358,11 @@
             // 
             // DisplayListBox
             // 
+            DisplayListBox.Font = new Font("Source Code Pro", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             DisplayListBox.FormattingEnabled = true;
             DisplayListBox.Location = new Point(337, 46);
             DisplayListBox.Name = "DisplayListBox";
-            DisplayListBox.Size = new Size(370, 229);
+            DisplayListBox.Size = new Size(443, 274);
             DisplayListBox.TabIndex = 19;
             // 
             // WinFormExampleForm

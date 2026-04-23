@@ -8,6 +8,8 @@ namespace WinFormsExample
             SetDefaults();
         }
 
+        string[,] customerData; // persistant customer data 
+
         private void SetDefaults()
         {
             NameTextBox.Text = "";
@@ -82,7 +84,7 @@ namespace WinFormsExample
             }
         }
 
-        static int CountOfLinesIn(string filePath)
+        private int CountOfLinesIn(string filePath)
         {
             int count = 0;
             using (StreamReader testFile = new StreamReader(filePath))
@@ -97,9 +99,9 @@ namespace WinFormsExample
             return count;
         }
 
-        static string[,] FileToArray(string filePath)
+        private void FileToArray(string filePath)
         {
-            string[,] customerData = new string[4, CountOfLinesIn(filePath)];
+            string[,] _customerData = new string[4, CountOfLinesIn(filePath)];
             string[] temp;
             int counter = 0;
 
@@ -117,10 +119,10 @@ namespace WinFormsExample
                         temp[0] = temp[0].Replace("\"$$", "");
                         temp[3] = temp[3].Replace("\"", "");
 
-                        customerData[0, counter] = temp[0];
-                        customerData[1, counter] = temp[1];
-                        customerData[2, counter] = temp[2];
-                        customerData[3, counter] = temp[3];
+                        _customerData[0, counter] = temp[0];
+                        _customerData[1, counter] = temp[1];
+                        _customerData[2, counter] = temp[2];
+                        _customerData[3, counter] = temp[3];
                     }
 
                     counter++;
@@ -128,12 +130,14 @@ namespace WinFormsExample
                 } while (!testFile.EndOfStream);
             }
 
-            return customerData;
+            this.customerData = _customerData;
+
         }
 
-        static void DisplayData(string[,] data)
+        private void DisplayData()
         {
-            string? formattedRow = "";
+            string[,] data = this.customerData;
+            string formattedRow = "";
 
             for (int row = 0; row < data.GetLength(1); row++)
             {
@@ -141,7 +145,7 @@ namespace WinFormsExample
                 {
                     if (data[column, row] != null)
                     {
-                        formattedRow += data[column, row].PadRight(15);
+                        formattedRow += data[column, row].PadRight(12);
 
                     }
 
@@ -248,8 +252,8 @@ namespace WinFormsExample
             if (MainOpenFileDialog.ShowDialog() == DialogResult.OK)
             {
                 filePath = MainOpenFileDialog.FileName;
-                fileData = FileToArray(filePath);
-                DisplayData(fileData);
+                FileToArray(filePath);
+                DisplayData();
                 
             }
         }
