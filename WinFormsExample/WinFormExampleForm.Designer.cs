@@ -42,8 +42,6 @@
             ClearButton = new Button();
             ButtonsGroupBox = new GroupBox();
             UserInfoGroupBox = new GroupBox();
-            checkBox2 = new CheckBox();
-            checkBox4 = new CheckBox();
             ReverseRadioButton = new RadioButton();
             UpperCaseRadioButton = new RadioButton();
             LowerCaseRadioButton = new RadioButton();
@@ -63,11 +61,17 @@
             AboutTopMenuItem = new ToolStripMenuItem();
             MainOpenFileDialog = new OpenFileDialog();
             DisplayListBox = new ListBox();
+            FilterComboBox = new ComboBox();
+            FilterOptionsGroupBox = new GroupBox();
+            CityRadioButton = new RadioButton();
+            LastNameRadioButton = new RadioButton();
+            FirstNameRadioButton = new RadioButton();
             ButtonsGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
             FormatOptionsGroupBox.SuspendLayout();
             FormatContextMenuStrip.SuspendLayout();
             TopMenuStrip.SuspendLayout();
+            FilterOptionsGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // ExitButton
@@ -195,26 +199,6 @@
             UserInfoGroupBox.TabStop = false;
             UserInfoGroupBox.Text = "User Info";
             // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(138, 52);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(121, 29);
-            checkBox2.TabIndex = 3;
-            checkBox2.Text = "checkBox2";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(138, 87);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(121, 29);
-            checkBox4.TabIndex = 4;
-            checkBox4.Text = "checkBox4";
-            checkBox4.UseVisualStyleBackColor = true;
-            // 
             // ReverseRadioButton
             // 
             ReverseRadioButton.AutoSize = true;
@@ -254,12 +238,10 @@
             FormatOptionsGroupBox.ContextMenuStrip = FormatContextMenuStrip;
             FormatOptionsGroupBox.Controls.Add(UpperCaseRadioButton);
             FormatOptionsGroupBox.Controls.Add(LowerCaseRadioButton);
-            FormatOptionsGroupBox.Controls.Add(checkBox4);
-            FormatOptionsGroupBox.Controls.Add(checkBox2);
             FormatOptionsGroupBox.Controls.Add(ReverseRadioButton);
             FormatOptionsGroupBox.Location = new Point(12, 227);
             FormatOptionsGroupBox.Name = "FormatOptionsGroupBox";
-            FormatOptionsGroupBox.Size = new Size(319, 203);
+            FormatOptionsGroupBox.Size = new Size(152, 203);
             FormatOptionsGroupBox.TabIndex = 18;
             FormatOptionsGroupBox.TabStop = false;
             FormatOptionsGroupBox.Text = "Format Options";
@@ -360,10 +342,63 @@
             // 
             DisplayListBox.Font = new Font("Source Code Pro", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             DisplayListBox.FormattingEnabled = true;
-            DisplayListBox.Location = new Point(337, 46);
+            DisplayListBox.Location = new Point(337, 73);
             DisplayListBox.Name = "DisplayListBox";
-            DisplayListBox.Size = new Size(443, 274);
+            DisplayListBox.Size = new Size(443, 247);
             DisplayListBox.TabIndex = 19;
+            // 
+            // FilterComboBox
+            // 
+            FilterComboBox.FormattingEnabled = true;
+            FilterComboBox.Location = new Point(337, 36);
+            FilterComboBox.Name = "FilterComboBox";
+            FilterComboBox.Size = new Size(182, 33);
+            FilterComboBox.TabIndex = 20;
+            // 
+            // FilterOptionsGroupBox
+            // 
+            FilterOptionsGroupBox.Controls.Add(FirstNameRadioButton);
+            FilterOptionsGroupBox.Controls.Add(LastNameRadioButton);
+            FilterOptionsGroupBox.Controls.Add(CityRadioButton);
+            FilterOptionsGroupBox.Location = new Point(170, 227);
+            FilterOptionsGroupBox.Name = "FilterOptionsGroupBox";
+            FilterOptionsGroupBox.Size = new Size(161, 203);
+            FilterOptionsGroupBox.TabIndex = 21;
+            FilterOptionsGroupBox.TabStop = false;
+            FilterOptionsGroupBox.Text = "Filter Options";
+            // 
+            // CityRadioButton
+            // 
+            CityRadioButton.AutoSize = true;
+            CityRadioButton.Location = new Point(6, 30);
+            CityRadioButton.Name = "CityRadioButton";
+            CityRadioButton.Size = new Size(67, 29);
+            CityRadioButton.TabIndex = 0;
+            CityRadioButton.TabStop = true;
+            CityRadioButton.Text = "City";
+            CityRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // LastNameRadioButton
+            // 
+            LastNameRadioButton.AutoSize = true;
+            LastNameRadioButton.Location = new Point(6, 64);
+            LastNameRadioButton.Name = "LastNameRadioButton";
+            LastNameRadioButton.Size = new Size(120, 29);
+            LastNameRadioButton.TabIndex = 1;
+            LastNameRadioButton.TabStop = true;
+            LastNameRadioButton.Text = "Last Name";
+            LastNameRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // FirstNameRadioButton
+            // 
+            FirstNameRadioButton.AutoSize = true;
+            FirstNameRadioButton.Location = new Point(6, 99);
+            FirstNameRadioButton.Name = "FirstNameRadioButton";
+            FirstNameRadioButton.Size = new Size(122, 29);
+            FirstNameRadioButton.TabIndex = 2;
+            FirstNameRadioButton.TabStop = true;
+            FirstNameRadioButton.Text = "First Name";
+            FirstNameRadioButton.UseVisualStyleBackColor = true;
             // 
             // WinFormExampleForm
             // 
@@ -372,6 +407,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = ClearButton;
             ClientSize = new Size(800, 450);
+            Controls.Add(FilterOptionsGroupBox);
+            Controls.Add(FilterComboBox);
             Controls.Add(DisplayListBox);
             Controls.Add(FormatOptionsGroupBox);
             Controls.Add(UserInfoGroupBox);
@@ -389,6 +426,8 @@
             FormatContextMenuStrip.ResumeLayout(false);
             TopMenuStrip.ResumeLayout(false);
             TopMenuStrip.PerformLayout();
+            FilterOptionsGroupBox.ResumeLayout(false);
+            FilterOptionsGroupBox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -408,8 +447,6 @@
         private Button ClearButton;
         private GroupBox ButtonsGroupBox;
         private GroupBox UserInfoGroupBox;
-        private CheckBox checkBox2;
-        private CheckBox checkBox4;
         private RadioButton ReverseRadioButton;
         private RadioButton UpperCaseRadioButton;
         private RadioButton LowerCaseRadioButton;
@@ -429,5 +466,10 @@
         private OpenFileDialog MainOpenFileDialog;
         private ToolStripMenuItem OpenTopMenuItem;
         private ListBox DisplayListBox;
+        private ComboBox FilterComboBox;
+        private GroupBox FilterOptionsGroupBox;
+        private RadioButton FirstNameRadioButton;
+        private RadioButton LastNameRadioButton;
+        private RadioButton CityRadioButton;
     }
 }
