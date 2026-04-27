@@ -6,6 +6,9 @@ namespace WinFormsExample
         {
             InitializeComponent();
             CityRadioButton.CheckedChanged += CityRadioButton_CheckedChanged1;
+            FirstNameRadioButton.CheckedChanged += CityRadioButton_CheckedChanged1;
+            LastNameRadioButton.CheckedChanged += CityRadioButton_CheckedChanged1;
+
 
             SetDefaults();
         }
@@ -170,12 +173,27 @@ namespace WinFormsExample
         {
             FilterComboBox.Items.Clear();
 
+            int column = 2;
 
+            switch(true)
+            {
+                case bool when CityRadioButton.Checked == true:
+                    column = 2;
+                    break;
+                case bool when FirstNameRadioButton.Checked == true:
+                    column = 0;
+                    break;
+                case bool when LastNameRadioButton.Checked == true:
+                    column = 1;
+                    break;
+
+
+            }
             for (int row = 0; (row < this.customerData.GetUpperBound(1)); row++)
             {
-                if (this.customerData[2, row] != null && FilterComboBox.Items.Contains(this.customerData[2, row]) != true)
+                if (this.customerData[column, row] != null && FilterComboBox.Items.Contains(this.customerData[column, row]) != true)
                 {
-                    FilterComboBox.Items.Add(this.customerData[2, row]); //add city
+                    FilterComboBox.Items.Add(this.customerData[column, row]); //add city
 
                 }
             }
