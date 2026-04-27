@@ -171,14 +171,18 @@ namespace WinFormsExample
             FilterComboBox.Items.Clear();
 
 
-            for (int row = 0; (row < this.customerData.GetUpperBound(0)); row++)
+            for (int row = 0; (row < this.customerData.GetUpperBound(1)); row++)
             {
-                if (this.customerData[2, row] != "")
+                if (this.customerData[2, row] != null && FilterComboBox.Items.Contains(this.customerData[2, row]) != true)
                 {
-                    FilterComboBox.Items.Add(this.customerData[1, row]); //add city
+                    FilterComboBox.Items.Add(this.customerData[2, row]); //add city
 
                 }
             }
+
+            FilterComboBox.Items.Add("~Select~");
+            FilterComboBox.Sorted = true;
+            FilterComboBox.SelectedIndex = 0;
 
         }
 
