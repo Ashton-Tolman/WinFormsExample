@@ -1,3 +1,5 @@
+using System.Data.Common;
+
 namespace WinFormsExample
 {
     public partial class WinFormExampleForm : Form
@@ -8,7 +10,7 @@ namespace WinFormsExample
             CityRadioButton.CheckedChanged += CityRadioButton_CheckedChanged1;
             FirstNameRadioButton.CheckedChanged += CityRadioButton_CheckedChanged1;
             LastNameRadioButton.CheckedChanged += CityRadioButton_CheckedChanged1;
-
+            FilterComboBox.SelectedIndexChanged += FilterComboBox_SelectedIndexChanged;
 
             SetDefaults();
         }
@@ -147,17 +149,32 @@ namespace WinFormsExample
         {
             string[,] data = this.customerData;
             string formattedRow = "";
+            int filterColumn = 2;
+
+            DisplayListBox.Items.Clear();
+
+            switch (true)
+            {
+                case bool when CityRadioButton.Checked == true:
+                    filterColumn = 2;
+                    break;
+                case bool when FirstNameRadioButton.Checked == true:
+                    filterColumn = 0;
+                    break;
+                case bool when LastNameRadioButton.Checked == true:
+                    filterColumn = 1;
+                    break;
+            }
 
             for (int row = 0; row < data.GetLength(1); row++)
             {
                 for (int column = 0; column < data.GetLength(0); column++)
                 {
-                    if (data[column, row] != null)
+                    if (data[column, row] != null && (data[filterColumn, row] == FilterComboBox.SelectedItem.ToString() ||  FilterComboBox.SelectedIndex == 0))
                     {
                         formattedRow += data[column, row].PadRight(12);
 
                     }
-
                 }
                 if (formattedRow != "")
                 {
@@ -206,6 +223,11 @@ namespace WinFormsExample
 
 
         //Event handelers below------------------------------------------------
+        private void FilterComboBox_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            DisplayData();
+        }
+
         private void CityRadioButton_CheckedChanged1(object? sender, EventArgs e)
         {
             LoadFilterComboBox();
@@ -302,6 +324,7 @@ namespace WinFormsExample
             {
                 filePath = MainOpenFileDialog.FileName;
                 FileToArray(filePath);
+                LoadFilterComboBox();
                 DisplayData();
 
             }
