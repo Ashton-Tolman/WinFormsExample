@@ -15,9 +15,9 @@ namespace WinFormsExample
             SetDefaults();
         }
 
-        
 
-        string[,] customerData = new string[0,0]; // persistant customer data 
+
+        string[,] customerData = new string[0, 0]; // persistant customer data 
 
         private void SetDefaults()
         {
@@ -170,7 +170,7 @@ namespace WinFormsExample
             {
                 for (int column = 0; column < data.GetLength(0); column++)
                 {
-                    if (data[column, row] != null && (data[filterColumn, row] == FilterComboBox.SelectedItem.ToString() ||  FilterComboBox.SelectedIndex == 0))
+                    if (data[column, row] != null && (data[filterColumn, row] == FilterComboBox.SelectedItem.ToString() || FilterComboBox.SelectedIndex == 0))
                     {
                         formattedRow += data[column, row].PadRight(12);
 
@@ -178,7 +178,7 @@ namespace WinFormsExample
                 }
                 if (formattedRow != "")
                 {
-
+                    formattedRow.Contains(SearchTextBox.Text, StringComparison.InvariantCultureIgnoreCase);
 
                     DisplayListBox.Items.Add(formattedRow);
                 }
@@ -192,7 +192,7 @@ namespace WinFormsExample
 
             int column = 2;
 
-            switch(true)
+            switch (true)
             {
                 case bool when CityRadioButton.Checked == true:
                     column = 2;
@@ -330,6 +330,12 @@ namespace WinFormsExample
             }
         }
 
-        
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            CityRadioButton.Checked = true;
+            FilterComboBox.SelectedIndex = 0;
+            DisplayData();
+            SearchTextBox.Text = "";
+        }
     }
 }

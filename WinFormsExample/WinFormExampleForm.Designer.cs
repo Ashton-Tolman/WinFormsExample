@@ -66,6 +66,8 @@
             FirstNameRadioButton = new RadioButton();
             LastNameRadioButton = new RadioButton();
             CityRadioButton = new RadioButton();
+            SearchTextBox = new TextBox();
+            SearchButton = new Button();
             ButtonsGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
             FormatOptionsGroupBox.SuspendLayout();
@@ -400,6 +402,23 @@
             CityRadioButton.Text = "City";
             CityRadioButton.UseVisualStyleBackColor = true;
             // 
+            // SearchTextBox
+            // 
+            SearchTextBox.Location = new Point(525, 38);
+            SearchTextBox.Name = "SearchTextBox";
+            SearchTextBox.Size = new Size(150, 31);
+            SearchTextBox.TabIndex = 22;
+            // 
+            // SearchButton
+            // 
+            SearchButton.Location = new Point(674, 38);
+            SearchButton.Name = "SearchButton";
+            SearchButton.Size = new Size(99, 34);
+            SearchButton.TabIndex = 23;
+            SearchButton.Text = "Search";
+            SearchButton.UseVisualStyleBackColor = true;
+            SearchButton.Click += SearchButton_Click;
+            // 
             // WinFormExampleForm
             // 
             AcceptButton = SubmitButton;
@@ -407,6 +426,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = ClearButton;
             ClientSize = new Size(800, 450);
+            Controls.Add(SearchButton);
+            Controls.Add(SearchTextBox);
             Controls.Add(FilterOptionsGroupBox);
             Controls.Add(FilterComboBox);
             Controls.Add(DisplayListBox);
@@ -471,5 +492,7 @@
         private RadioButton FirstNameRadioButton;
         private RadioButton LastNameRadioButton;
         private RadioButton CityRadioButton;
+        private TextBox SearchTextBox;
+        private Button SearchButton;
     }
 }
